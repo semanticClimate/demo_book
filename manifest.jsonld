@@ -30,12 +30,12 @@
             "type": [
                 "LinkedResource"
             ],
-            "url": "css/book.css"
+            "url": "assets/css/book.css"
         },
         {
             "type": "LinkedResource",
             "rel": "cover",
-            "url": "images/cover.jpg",
+            "url": "assets/images/cover.jpg",
             "encodingFormat": "image/jpeg"
         },
         {
