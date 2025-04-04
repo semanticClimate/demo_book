@@ -8,4 +8,4 @@ This contains the information about:
 [CLICK HERE](https://github.com/semanticClimate/hyperbook-template)
 
 ### Project Structure Layout
-[CLICK HERE]
+[CLICK HERE](https://github.com/semanticClimate/demo_book/blob/main/images_for_readme/Book_project_structure.svg)
