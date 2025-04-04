@@ -5,91 +5,112 @@
     <title>demo book - #semanticClimate Research Demo</title>
     <link type="text/css" rel="stylesheet" href="assets/css/book.css" />
     <style>
-      a.fn {
-        -adapt-template: url(data:application/xml,%3Chtml%20xmlns=%22http://www.w3.org/1999/xhtml%22%20xmlns:s=%22http://www.pyroxy.com/ns/shadow%22%3E%3Chead%3E%3Cstyle%3E.footnote-content%7Bfloat:footnote%7D%3C/style%3E%3C/head%3E%3Cbody%3E%3Cs:template%20id=%22footnote%22%3E%3Cs:content/%3E%3Cs:include%20class=%22footnote-content%22/%3E%3C/s:template%3E%3C/body%3E%3C/html%3E#footnote);
-        text-decoration: none;
-        color: inherit;
-        vertical-align: baseline;
-        font-size: 70%;
-        position: relative;
-        top: -0.3em;
-      }
-      body {
-        background-color: white;
-      }
-      section[role=doc-footnote] .footnote-counter:after {
-        content: ". ";
-      }
-      section.fnlist {
-        display: none;
-      }
-      section:footnote-content {
-        display: block;
-        font-style: normal;
-        font-weight: normal;
-        text-decoration: none;
-      }
-      .table-of-contents a {
-        display: inline-flex;
-        width: 100%;
-        text-decoration: none;
-        color: currentColor;
-        break-inside: avoid;
-        align-items: baseline;
-      }
-      .table-of-contents a::before {
-        margin-left: 1px;
-        margin-right: 1px;
-        border-bottom: solid 1px lightgray;
-        content: "";
-        order: 1;
-        flex: auto;
-      }
-      .table-of-contents a::after {
-        text-align: right;
-        content: target-counter(attr(href, url), page);
-        align-self: flex-end;
-        flex: none;
-        order: 2;
-      }
-      @page {
-        size: A4;
-        @top-center {
-          content: env(doc-title);
+        a.fn {
+            -adapt-template: url(data:application/xml,%3Chtml%20xmlns=%22http://www.w3.org/1999/xhtml%22%20xmlns:s=%22http://www.pyroxy.com/ns/shadow%22%3E%3Chead%3E%3Cstyle%3E.footnote-content%7Bfloat:footnote%7D%3C/style%3E%3C/head%3E%3Cbody%3E%3Cs:template%20id=%22footnote%22%3E%3Cs:content/%3E%3Cs:include%20class=%22footnote-content%22/%3E%3C/s:template%3E%3C/body%3E%3C/html%3E#footnote);
+            text-decoration: none;
+            color: inherit;
+            vertical-align: baseline;
+            font-size: 70%;
+            position: relative;
+            top: -0.3em;
         }
-        @bottom-center {
-          content: counter(page);
+        body {
+            background-color: white;
         }
-      }
-      @page :first {
-        @bottom-center {
-          content: normal;
+        section[role=doc-footnote] .footnote-counter:after {
+            content: ". ";
         }
-        @top-center {
-          content: normal;
+        section.fnlist {
+            display: none;
         }
-      }
-      figure img {
-        max-width: 100%;
-      }
-      .article-title {
-        page-break-before: right;
-      }
-      h1.part {
-        page-break-before: right;
-      }
-      .copyrightpage {
-        page-break-before: left;
-      }
-      .tocpage {
-        page-break-before: right;
-      }
-      .booktitle {
-        text-align: center;
-      }
+        section:footnote-content {
+            display: block;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+        }
+        .table-of-contents a {
+            display: inline-flex;
+            width: 100%;
+            text-decoration: none;
+            color: currentColor;
+            break-inside: avoid;
+            align-items: baseline;
+        }
+        .table-of-contents a::before {
+            margin-left: 1px;
+            margin-right: 1px;
+            border-bottom: solid 1px lightgray;
+            content: "";
+            order: 1;
+            flex: auto;
+        }
+        .table-of-contents a::after {
+            text-align: right;
+            content: target-counter(attr(href, url), page);
+            align-self: flex-end;
+            flex: none;
+            order: 2;
+        }
+        @page {
+            size: A4;
+            @top-center {
+            content: env(doc-title);
+            }
+            @bottom-center {
+            content: counter(page);
+            }
+        }
+        @page :first {
+            @bottom-center {
+            content: normal;
+            }
+            @top-center {
+            content: normal;
+            }
+        }
+        figure img {
+            max-width: 100%;
+        }
+        .article-title {
+            page-break-before: right;
+        }
+        h1.part {
+            page-break-before: right;
+        }
+        .copyrightpage {
+            page-break-before: left;
+        }
+        .tocpage {
+            page-break-before: right;
+        }
+        .booktitle {
+            text-align: center;
+        }
+        div[role="ami_entry"] {
+            border: 1px solid #636060;        /* thin gray border */
+            padding: 12px;                 /* space inside the box */
+            margin: 20px 0;                /* space between boxes */
+            border-radius: 6px;            /* optional: slightly rounded corners */
+            background-color: #fefefe;     /* optional: soft background */
+        }       
     </style>
     <link type="text/css" rel="stylesheet" href="assets/css/appaloosa.css" />
     <base href="https://en.wikipedia.org/wiki/">
+    <script>
+        // Function to update links automatically
+        window.onload = function() {
+            // Select all <a> elements
+            const links = document.querySelectorAll('a[href^="/wiki/"]');
+            
+            // Loop through each link and update the href
+            links.forEach(function(link) {
+                let href = link.getAttribute('href');
+                // Update href to the full URL
+                link.setAttribute('href', 'https://en.wikipedia.org' + href);
+            });
+        };
+    </script>
 </head>
 
 <body class="user-contents">
@@ -162,7 +183,7 @@
 			</pre>
 </div>
 
-    <div class="tocpage frontmatter">
+<div class="tocpage frontmatter">
       <nav role="doc-toc">
 		<ol>
           <li>
@@ -296,226 +317,23 @@
 		  </li>
 	    </ol>
 	  </nav>
-    </div>
-
-<div class="article-part article-title" id="_1_0">A</div>
-<div class="article-part article-richtext article-body">
-		
-    <div style="gloss-back">
-        <a name="ablation"></a>
-        <div class="p-1">
-            <div class="gloss-term"><h4>ablation</h4><div>
-                <div>
-                <p class="definition">All processes that reduce the mass of a <em><a href="#glacier" class="mention">glacier</a></em>,<em><a href="#ice_sheet" class="mention"> ice sheet</a></em>, or snow cover.</p><p>The main processes are melting, and for glaciers also <em><a href="#calving" class="mention">calving</a></em> (or, when the glacier nourishes an <em><a href="#ice_shelf" class="mention">ice shelf</a></em>, <em>discharge of ice</em> across the <em><a href="#grounding_line" class="mention">grounding line</a></em>), but other processes such as sublimation and loss of wind-blown snow can also contribute to ablation. Ablation also refers to the mass lost by any of these processes.</p></div>
-                <div class="p-3 small"><h6 class="fs-6">Parent-term</h6><ul ><li><span data-report="AR6" data-phrase="Mass balance/budget (of glaciers or ice sheets)" data-phraseid="2202"><a href="#mass_balance/budget">Mass balance/budget (of glaciers or ice sheets)</a></span></li></ul></div>
-        <a title="Kelvinsong, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Glacier_diagram.svg"><img width="512" alt="Glacier diagram" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Glacier_diagram.svg/512px-Glacier_diagram.svg.png"></a>
-        <div class="sem-ann"><h3 >semanticClimate annotation</h3>
-        <!-- ad manual content here -->
-        <!-- template for language  equivalents -->
-        <div>
-            <p>Translations</p>
-        <ul>
-        <li lang="de">DE: ablation</li>
-        <li lang="hi">HI: पृथक करना</li>
-        </ul>
-        </div>
-        <!--end template --></div>
-        </div>
-        <div>	
-        </div>
-        <div class="wg"> WGI</div>
-        <div class="paren">of glaciers, ice sheets, or snow cover</div>
-        </div>
-    </div>
 </div>
 
-
-
-<div class="gloss-back">
-	
-<a name="abrupt_change"></a>
-
-<div class="p-1">	
-	<div class="gloss-term"><h4>abrupt change</h4><p class="definition">A change in the system that is substantially faster than the typical rate of the changes in its history.</p>
-<div class="sem-ann"><h3 >semanticClimate annotation</h3><!-- ad manual content here -->
-<div>
-	<p>Translations</p>
-	<ul>
-		<li lang="hi">HI: अचानक परिवर्तन</li>
-	</ul>
-</div>
-<div>	
-</div></div><div class="wg"> WGI,WGII </div></div></div>
-</div>
-
-
-<div class="gloss-back">
-<a name="abrupt_climate_change"></a>
-<div class="p-1">	
-	<div class="gloss-term"><h4>abrupt climate change</h4><p class="definition">A large-scale <em><a href="#abrupt_change" class="mention">abrupt change</a></em> in the <em><a href="#climate_system" class="mention">climate system</a></em> that takes place over a few decades or less, persists (or is anticipated to persist) for at least a few decades and causes substantial <em>impacts</em> in <em>human and/or natural systems</em>.</p>
-<div class="sem-ann"><h3 >semanticClimate annotation</h3><p><a title="English:  NPS, Public domain, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Castle_Rock_Cut,_June_2021_(f22992e4-e54a-447f-851d-9b30b0bcc499).JPG"><img width="312" alt="Castle Rock Cut, June 2021 (f22992e4-e54a-447f-851d-9b30b0bcc499)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Castle_Rock_Cut%2C_June_2021_%28f22992e4-e54a-447f-851d-9b30b0bcc499%29.JPG/512px-Castle_Rock_Cut%2C_June_2021_%28f22992e4-e54a-447f-851d-9b30b0bcc499%29.JPG"></a></p><p><b>From <a href="https://en.wikipedia.org/wiki/Abrupt_climate_change">Wikipedia</a></b> An abrupt climate change occurs when the climate system is forced to transition at a rate that is determined by the climate system energy-balance.</p>
-<div>
-	<p>Translations</p>
-	<ul>
-		<li lang="hi">HI: अचानक जलवायु परिवर्तन</li>
-	</ul>
-</div>
-<div>	
-</div></div><div class="wg"> WGI,WGII </div></div></div>
-</div>
-
-<div class="gloss-back">
-<a name="avoid,_shift,_improve"></a>
-<div class="p-1">	
-	<div class="gloss-term"><h4>Avoid, Shift, Improve</h4><p class="definition">Reducing greenhouse gas emissions by avoiding the use of an emissions-producing service entirely, shifting to the lowest-emission mode of providing the service, and/or improving the technologies and systems for providing the service in ways that reduce emissions.</p>
-<div class="sem-ann"><h3 >semanticClimate annotation</h3><!-- ad manual content here -->
-<div>
-	<p>Translations</p>
-	<ul>
-		<li lang="hi">HI: बचें, बदलाव करें, सुधार करें</li>
-	</ul>
-</div>
-<div>	
-</div></div><div class="wg"> WGIII </div><div class="paren">ASI
-</div></div></div></div>
-
-</div></div>
-
-<div class="article-part article-title" id="_2_0">B</div>
-<div class="article-part article-richtext article-body">
-
-<div class="gloss-back">
-<a name="basal_lubrication"></a>
-<div class="p-1">	
-	<div class="gloss-term"><h4>basal lubrication</h4><div><p class="definition">Reduction of friction at the base of an <em><a href="#ice_sheet" class="mention">ice sheet</a></em> or <em><a href="#glacier" class="mention">glacier</a></em> due to lubrication by meltwater.</p><p>This can allow the glacier or ice sheet to slide over its base. Meltwater may be produced by pressure-induced melting, friction or geothermal heat, or surface melt may drain to the base through holes in the ice.</p></div>
-<div class="sem-ann"><h3 >semanticClimate annotation</h3><!-- ad manual content here -->
-<div>	
-</div></div><div class="wg"> WGI </div></div></div>
-</div>
-
-
-<div class="gloss-back">
-<a name="baseline_period"></a>
-<div class="p-1">	
-	<div class="gloss-term"><h4>baseline period</h4><div><p class="definition">A time period against which differences are calculated (e.g., expressed as <em>anomalies</em> relative to a baseline).</p><div class="p-3 small"><h6 class="fs-6">Parent-term</h6><ul ><li><span data-report="AR6" data-phrase="Reference period" data-phraseid="543"><a href="#reference_period">Reference period</a></span></li></ul></div>
-<div class="sem-ann"><h3 >semanticClimate annotation</h3><!-- ad manual content here -->
-<div>
-	<p>Translations</p>
-	<ul>
-		<li lang="hi">HI: आधारभूत अवधि</li>
-	</ul>
-</div>
-</div><div>	
-</div></div><div class="wg"> WGI,WGIII </div></div></div>
-</div>
-
-
-<div class="gloss-back">
-<a name="baseline/reference"></a>
-<div class="p-1">	
-	<div class="gloss-term"><h4>baseline/reference</h4><div><p class="definition">The baseline (or reference) isthe state against which change is measured.</p><p>A baseline period isthe period relative to which anomalies are computed. The baseline concentration of a trace gas is that measured at a location not influenced by local anthropogenic emissions.</p></div>
-<div class="sem-ann"><h3 >semanticClimate annotation</h3><!-- ad manual content here -->
-<div>	
-</div></div><div class="wg"> WGI,WGII,WGIII </div></div></div>
-</div>
-
-
-<div class="gloss-back">
-<a name="baseline_scenario"></a>
-<div class="p-1">	
-	<div class="gloss-term"><h4>baseline scenario</h4><div><p class="definition">See Reference Scenario</p><div class="p-3 small"><h6 class="fs-6">Parent-term</h6><ul ><li><span data-report="AR6" data-phrase="Scenario" data-phraseid="565"><a href="#scenario">Scenario</a></span></li></ul></div>
-<div class="sem-ann"><h3 >semanticClimate annotation</h3><!-- ad manual content here -->
-<div>
-	<p>Translations</p>
-	<ul>
-		<li lang="hi">HI: आधारभूत परिदृश्य</li>
-	</ul>
-</div>
-</div><div>	
-</div></div><div class="wg"> WGIII,WGI,WGII </div></div></div>
-</div>
-
-
-<div class="gloss-back">
-<a name="calving"></a>
-<div class="p-1">	
-	<div class="gloss-term"><h4>calving</h4><p class="fs-6 p-2 mb-0"></p><p>The breaking off of discrete pieces of ice from a <em><a href="#glacier" class="mention">glacier</a></em>, <em><a href="#ice_sheet" class="mention">ice sheet</a></em> or an <em><a href="#ice_shelf" class="mention">ice shelf</a></em> into lake or seawater, producing <em><a href="#iceberg" class="mention">icebergs</a></em>. This is a form of mass loss from an ice body.</p><p></p>
-<div class="sem-ann"><h3 >semanticClimate annotation</h3><p><a title="User:Andrewman327, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Alaskan_glacier_and_ice_field.jpeg"><img width="512" alt="Alaskan glacier and ice field" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Alaskan_glacier_and_ice_field.jpeg/512px-Alaskan_glacier_and_ice_field.jpeg"></a></p><p><b>From <a href="https://en.wikipedia.org/wiki/Ice_calving">Wikipedia</a></b> Ice calving, also known as glacier calving or iceberg calving, is the breaking of ice chunks from the edge of a glacier. It is a form of ice ablation or ice disruption. It is the sudden release and breaking away of a mass of ice from a glacier, iceberg, ice front, ice shelf, or crevasse.</p>
-<div>
-	<p>Translations</p>
-	<ul>
-		<li lang="hi">HI: बर्फ विघटन</li>
-	</ul>
-</div>
-<div>	
-</div></div><div class="wg"> WGI </div><div class="paren">of glaciers or ice sheets</div></div></div>
-</div>
-
-
-<div class="article-part article-title" id="_26_0">Z</div>
-<div class="article-part article-richtext article-body">
-
-<div class="gloss-back">
-<a name="zero_emissions_commitment"></a>
-<div class="p-1">	
-	<div class="gloss-term"><h4>zero emissions commitment</h4><div><div><p class="definition">The zero emissions commitment is an estimate of the subsequent <em><a href="#global_warming" class="mention">global warming</a></em> that would result after <em>anthropogenic emissions</em> are set to zero.</p><p>It is determined by both inertia in physical <em><a href="#climate_system" class="mention">climate system</a></em> components (<em><a href="#ocean" class="mention">ocean</a></em>, <em><a href="#cryosphere" class="mention">cryosphere</a></em>, land surface) and <em><a href="#carbon_cycle" class="mention">carbon cycle</a></em> inertia. In its widest sense it refers to emissions of each climate <em>forcer</em> including <em>greenhouses gases</em>, <em><a href="#aerosol" class="mention">aerosols</a></em> and their <em>precursors</em>. The climate response to this can be complex due to the different time scale of response of each climate forcer. A specific subcategory of zero emissions commitment is the Zero CO2 Emissions Commitment which refers to the climate system response to CO2 emissions after setting these to net zero. The CO2-only definition is of specific use in estimating <em><a href="#remaining_carbon_budget" class="mention">remaining carbon budgets</a></em>.</p></div><div class="p-3 small"><h6 class="fs-6">Parent-term</h6><ul ><li><span data-report="AR6" data-phrase="Climate change commitment" data-phraseid="105"><a href="#climate_change_commitment">Climate change commitment</a></span></li></ul></div>
-<div class="sem-ann"><h3 >semanticClimate annotation</h3><!-- ad manual content here -->
-</div><div>	
-</div></div><div class="wg"> WGI,WGIII </div></div></div>
-</div>
-
-
-<div class="gloss-back">
-
-<div class="p-1">	
-	<div class="">
-<h4 >Wind energy  « WGIII »</h4>
-<p class="fs-6 p-2 mb-0">Kinetic energy from airflow arising from the uneven heating of the Earthâs surface. The windâs kinetic energy is converted to mechanical shaft energy and electricity by a wind turbine, a rotating machine. A wind farm, wind project, wind park, or wind power plant is a group of wind turbines interconnected to a common utility system through a system of transformers, distribution lines, and (usually) one substation.</p>
-<div class="sem-ann"><h3 >semanticClimate annotation</h3><!-- ad manual content here -->
-
-<div>	
-</div>
-<div class="wg"> WGIII </div>
-</div>
-</div>
-</div>
-
-
-<div class="gloss-back">
-<a name="displacement"></a>
-<div class="p-1">	
-	<div class="gloss-term"><h4>displacement</h4><p class="definition">The involuntary movement, individually or collectively, of persons from their country or community, notably for reasons of armed conflict, civil unrest, or natural or human-made disasters (adapted from IOM, 2011).</p>
-<div class="sem-ann"><h3 >semanticClimate annotation</h3><!-- ad manual content here -->
-<div>	
-</div></div><div class="wg"> WGII </div><div class="paren">of humans</div><div class="paren">Internal</div></div></div>
-</div>
-
-
-<div class="gloss-back">
-<a name="impact_assessment"></a>
-<div class="p-1">	
-	<div class="gloss-term"><h4>impact assessment</h4><p class="definition">The practice of identifying and evaluating, in monetary and/or non-monetary terms, the effects of <em><a href="#climate_change" class="mention">climate change</a></em> on natural and <em><a href="#human_system" class="mention">human systems</a></em>.</p>
-<div class="sem-ann"><h3 >semanticClimate annotation</h3><!-- ad manual content here -->
-<div>	
-</div><div class="paren">climate change</div></div></div>
-</div>
-
-
-<div class="gloss-back">
-<a name="ph"></a>
-<div class="p-1">	
-	<div class="gloss-term"><h4>pH</h4><div><p class="definition">A dimensionless measure of the acidity of a dilute solution (e.g., seawater) based on the activity, or effective concentration, of hydrogen ions (H<sup>+</sup>) in the solution.</p><p>pH is measured on a logarithmic scale where pH = –log<sub>10</sub>(H<sup>+</sup>). Thus, a pH decrease of 1 unit corresponds to a 10-fold increase in the acidity, or the activity of H+.</p></div>
-<div class="sem-ann"><h3 >semanticClimate annotation</h3><!-- ad manual content here -->
-<div>	
-</div></div><div class="wg"> WGII,WGI </div></div></div>
-</div>
-</div></div>
 
 <div name="External forcing" term="External forcing" role="ami_entry"><p>search term:  External forcing <a href="https://en.wikipedia.org/w/index.php?search=External%20forcing">Wikipedia Page</a></p><p class="wpage_first_para"><b>Radiative forcing</b> (or <b>climate forcing</b><sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">[</span>2<span class="cite-bracket">]</span></a></sup>) is a concept used to quantify a change to the <a href="/wiki/Earth%27s_energy_budget" title="Earth's energy budget">balance of energy</a> flowing through a planetary atmosphere. Various factors contribute to this change in energy balance, such as concentrations of <a href="/wiki/Greenhouse_gas" title="Greenhouse gas">greenhouse gases</a> and <a href="/wiki/Aerosol" title="Aerosol">aerosols</a>, and changes in <a href="/wiki/Albedo" title="Albedo">surface albedo</a> and <a href="/wiki/Solar_irradiance" title="Solar irradiance">solar irradiance</a>. In more technical terms, it is defined as "the change in the net, downward minus upward, <a href="/wiki/Radiative_flux" title="Radiative flux">radiative flux</a> (expressed in W/m<sup>2</sup>) due to a change in an external driver of climate change."<sup id="cite_ref-:0_3-0" class="reference"><a href="#cite_note-:0-3"><span class="cite-bracket">[</span>3<span class="cite-bracket">]</span></a></sup><sup class="reference nowrap"><span title="Page / location: 2245">:&#8202;2245&#8202;</span></sup> These external drivers are distinguished from <a href="/wiki/Climate_change_feedback" class="mw-redirect" title="Climate change feedback">feedbacks</a> and <a href="/wiki/Climate_variability_and_change" title="Climate variability and change">variability</a> that are internal to the <a href="/wiki/Climate_system" title="Climate system">climate system</a>, and that further influence the direction and magnitude of <a href="/wiki/Earth%27s_energy_imbalance" class="mw-redirect" title="Earth's energy imbalance">imbalance</a>. Radiative forcing on Earth is meaningfully evaluated at the <a href="/wiki/Tropopause" title="Tropopause">tropopause</a> and at the top of the <a href="/wiki/Stratosphere" title="Stratosphere">stratosphere</a>. It is quantified in units of <a href="/wiki/Watt" title="Watt">watts</a> per square <a href="/wiki/Meter" class="mw-redirect" title="Meter">meter</a>, and often summarized as an average over the total surface area of the globe.
 </p><div title="figure"><figure typeof="mw:File/Thumb"><a href="/wiki/File:Physical_Drivers_of_climate_change.svg" class="mw-file-description"><img alt="Warming contributions of various GHGs, agents, factors [name the year that the contributions pertain to] [*correct reference given under the 'Talk' tab*]. Plus, the figure is inaccurate; at least wrt. to methane." src="//upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Physical_Drivers_of_climate_change.svg/300px-Physical_Drivers_of_climate_change.svg.png" decoding="async" width="300" height="279" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Physical_Drivers_of_climate_change.svg/450px-Physical_Drivers_of_climate_change.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Physical_Drivers_of_climate_change.svg/600px-Physical_Drivers_of_climate_change.svg.png 2x" data-file-width="960" data-file-height="893"></a><figcaption>The assessment of radiative forcing and <a href="/wiki/Climate_sensitivity" title="Climate sensitivity">climate sensitivity</a> shows which physical parameters are contributing to temperature changes.<sup id="cite_ref-:1_1-0" class="reference"><a href="#cite_note-:1-1"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></a></sup><sup class="reference nowrap"><span title="Page / location: 7">:&#8202;7&#8202;</span></sup> Parameters shown with orange bars lead to a temperature increase (due to positive radiative forcings), whereas parameters shown with blue bars lead to a temperature decrease (due to negative radiative forcing). </figcaption></figure></div><p></p></div><div name="cyclone" term="cyclone" role="ami_entry"><p>search term:  cyclone <a href="https://en.wikipedia.org/w/index.php?search=cyclone">Wikipedia Page</a></p><p class="wpage_first_para">In <a href="/wiki/Meteorology" title="Meteorology">meteorology</a>, a <b>cyclone</b> (<span class="rt-commentedText nowrap"><span class="IPA nopopups noexcerpt" lang="en-fonipa"><a href="/wiki/Help:IPA/English" title="Help:IPA/English">/<span style="border-bottom:1px dotted"><span title="/&#712;/: primary stress follows">&#712;</span><span title="'s' in 'sigh'">s</span><span title="/a&#618;/: 'i' in 'tide'">a&#618;</span><span title="/./: syllable break">.</span><span title="'k' in 'kind'">k</span><span title="'l' in 'lie'">l</span><span title="/o&#650;/: 'o' in 'code'">o&#650;</span><span title="'n' in 'nigh'">n</span></span>/</a></span></span>)  is a large <a href="/wiki/Air_mass" title="Air mass">air mass</a> that rotates around a strong center of low <a href="/wiki/Atmospheric_pressure" title="Atmospheric pressure">atmospheric pressure</a>, counterclockwise in the <a href="/wiki/Northern_Hemisphere" title="Northern Hemisphere">Northern Hemisphere</a> and clockwise in the <a href="/wiki/Southern_Hemisphere" title="Southern Hemisphere">Southern Hemisphere</a> as viewed from above (opposite to an <a href="/wiki/Anticyclone" title="Anticyclone">anticyclone</a>).<sup id="cite_ref-AMSCcDef_1-0" class="reference"><a href="#cite_note-AMSCcDef-1"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></a></sup><sup id="cite_ref-AMSCycDef_2-0" class="reference"><a href="#cite_note-AMSCycDef-2"><span class="cite-bracket">[</span>2<span class="cite-bracket">]</span></a></sup> Cyclones are characterized by inward-spiraling winds that rotate about a zone of <a href="/wiki/Low_pressure" class="mw-redirect" title="Low pressure">low pressure</a>.<sup id="cite_ref-BBCCycDef_3-0" class="reference"><a href="#cite_note-BBCCycDef-3"><span class="cite-bracket">[</span>3<span class="cite-bracket">]</span></a></sup><sup id="cite_ref-UCARCycDef_4-0" class="reference"><a href="#cite_note-UCARCycDef-4"><span class="cite-bracket">[</span>4<span class="cite-bracket">]</span></a></sup> The largest low-pressure systems are <a href="/wiki/Polar_vortices" class="mw-redirect" title="Polar vortices">polar vortices</a> and <a href="/wiki/Extratropical_cyclone" title="Extratropical cyclone">extratropical cyclones</a> of the largest scale (the <a href="/wiki/Synoptic_scale" class="mw-redirect" title="Synoptic scale">synoptic scale</a>). Warm-core cyclones such as <a href="/wiki/Tropical_cyclone" title="Tropical cyclone">tropical cyclones</a> and <a href="/wiki/Subtropical_cyclone" title="Subtropical cyclone">subtropical cyclones</a> also lie within the synoptic scale.<sup id="cite_ref-5" class="reference"><a href="#cite_note-5"><span class="cite-bracket">[</span>5<span class="cite-bracket">]</span></a></sup> <a href="/wiki/Mesocyclone" title="Mesocyclone">Mesocyclones</a>, <a href="/wiki/Tornado" title="Tornado">tornadoes</a>, and <a href="/wiki/Dust_devil" title="Dust devil">dust devils</a> lie within the smaller <a href="/wiki/Mesoscale_meteorology" title="Mesoscale meteorology">mesoscale</a>.<sup id="cite_ref-6" class="reference"><a href="#cite_note-6"><span class="cite-bracket">[</span>6<span class="cite-bracket">]</span></a></sup>
 </p><div title="figure"><figure class="mw-default-size" typeof="mw:File/Thumb"><a href="/wiki/File:Low_pressure_system_over_Iceland.jpg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Low_pressure_system_over_Iceland.jpg/290px-Low_pressure_system_over_Iceland.jpg" decoding="async" width="290" height="251" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Low_pressure_system_over_Iceland.jpg/435px-Low_pressure_system_over_Iceland.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Low_pressure_system_over_Iceland.jpg/580px-Low_pressure_system_over_Iceland.jpg 2x" data-file-width="6000" data-file-height="5200"></a><figcaption>An extratropical cyclone near Iceland</figcaption></figure>
 </div><p></p></div>
-
-
+<div name="Observational data" term="Observational data" role="ami_entry"><p>search term:  Observational data <a href="https://en.wikipedia.org/w/index.php?search=Observational%20data">Wikipedia Page</a></p><p class="wpage_first_para">In fields such as <a href="/wiki/Epidemiology" title="Epidemiology">epidemiology</a>, <a href="/wiki/Social_science" title="Social science">social sciences</a>, <a href="/wiki/Psychology" title="Psychology">psychology</a>  and <a href="/wiki/Statistics" title="Statistics">statistics</a>, an <b>observational study</b> draws inferences from a <a href="/wiki/Sample_(statistics)" class="mw-redirect" title="Sample (statistics)">sample</a> to a <a href="/wiki/Statistical_population" title="Statistical population">population</a> where the <a href="/wiki/Dependent_and_independent_variables" title="Dependent and independent variables">independent variable</a> is not under the <a href="/wiki/Scientific_control" title="Scientific control">control</a> of the researcher because of ethical concerns or logistical constraints. One common observational study is about the possible effect of a treatment on subjects, where the assignment of subjects into a treated group versus a <a href="/wiki/Control_group" class="mw-redirect" title="Control group">control group</a> is outside the control of the investigator.<sup id="cite_ref-urlObservational_study_1-0" class="reference"><a href="#cite_note-urlObservational_study-1"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></a></sup><sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">[</span>2<span class="cite-bracket">]</span></a></sup> This is in contrast with <a href="/wiki/Experiment" title="Experiment">experiments</a>, such as <a href="/wiki/Randomized_controlled_trial" title="Randomized controlled trial">randomized controlled trials</a>, where each subject is <a href="/wiki/Random_assignment" title="Random assignment">randomly assigned</a> to a treated group or a control group. Observational studies, for lacking an assignment mechanism, naturally present difficulties for inferential analysis.
+</p>
+<div title="figure"><figure class="mw-default-size" typeof="mw:File/Thumb"><a href="/wiki/File:Blankett,_Antropoloogiline_vaatlusleht,_vorm_nr._4,_1961.jpg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Blankett%2C_Antropoloogiline_vaatlusleht%2C_vorm_nr._4%2C_1961.jpg/220px-Blankett%2C_Antropoloogiline_vaatlusleht%2C_vorm_nr._4%2C_1961.jpg" decoding="async" width="220" height="151" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Blankett%2C_Antropoloogiline_vaatlusleht%2C_vorm_nr._4%2C_1961.jpg/330px-Blankett%2C_Antropoloogiline_vaatlusleht%2C_vorm_nr._4%2C_1961.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Blankett%2C_Antropoloogiline_vaatlusleht%2C_vorm_nr._4%2C_1961.jpg/440px-Blankett%2C_Antropoloogiline_vaatlusleht%2C_vorm_nr._4%2C_1961.jpg 2x" data-file-width="2446" data-file-height="1680"></a><figcaption>Anthropological survey paper from 1961 by <a href="/w/index.php?title=Juhan_Aul&amp;action=edit&amp;redlink=1" class="new" title="Juhan Aul (page does not exist)">Juhan Aul</a> (<a href="https://et.wikipedia.org/wiki/Juhan_Aul" class="extiw" title="et:Juhan Aul">et</a>) from <a href="/wiki/University_of_Tartu" title="University of Tartu">University of Tartu</a> who measured about 50&#160;000 people</figcaption></figure>
+</div><p></p></div>
+<div name="whiskers" term="whiskers" role="ami_entry"><p>search term:  whiskers <a href="https://en.wikipedia.org/w/index.php?search=whiskers">Wikipedia Page</a></p><p class="wpage_first_para"><b>Whiskers</b> or <b>vibrissae</b> (<span class="rt-commentedText nowrap"><span class="IPA nopopups noexcerpt" lang="en-fonipa"><a href="/wiki/Help:IPA/English" title="Help:IPA/English">/<span style="border-bottom:1px dotted"><span title="'v' in 'vie'">v</span><span title="/&#601;/: 'a' in 'about'">&#601;</span><span title="/&#712;/: primary stress follows">&#712;</span><span title="'b' in 'buy'">b</span><span title="'r' in 'rye'">r</span><span title="/&#618;/: 'i' in 'kit'">&#618;</span><span title="'s' in 'sigh'">s</span><span title="/i/: 'y' in 'happy'">i</span></span>/</a></span></span>; <abbr title="singular form">sg.</abbr>: <b>vibrissa</b>; <span class="rt-commentedText nowrap"><span class="IPA nopopups noexcerpt" lang="en-fonipa"><a href="/wiki/Help:IPA/English" title="Help:IPA/English">/<span style="border-bottom:1px dotted"><span title="'v' in 'vie'">v</span><span title="/&#601;/: 'a' in 'about'">&#601;</span><span title="/&#712;/: primary stress follows">&#712;</span><span title="'b' in 'buy'">b</span><span title="'r' in 'rye'">r</span><span title="/&#618;/: 'i' in 'kit'">&#618;</span><span title="'s' in 'sigh'">s</span><span title="/&#601;/: 'a' in 'about'">&#601;</span></span>/</a></span></span>) are a type of stiff, functional <a href="/wiki/Hair" title="Hair">hair</a> used by most <a href="/wiki/Theria" title="Theria">therian</a> <a href="/wiki/Mammals" class="mw-redirect" title="Mammals">mammals</a> to <a href="/wiki/Sense" title="Sense">sense</a> their environment.<sup id="cite_ref-hair_1-0" class="reference"><a href="#cite_note-hair-1"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></a></sup> These hairs are finely specialised for this purpose, whereas other types of hair are coarser as <a href="/wiki/Tactile_sensor" title="Tactile sensor">tactile sensors</a>. Although whiskers are specifically those found around the face, vibrissae are known to grow in clusters at various places around the body. Most mammals have them, including all non-human <a href="/wiki/Primate" title="Primate">primates</a><sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">[</span>2<span class="cite-bracket">]</span></a></sup> and especially <a href="/wiki/Nocturnality" title="Nocturnality">nocturnal</a> mammals. <a href="/wiki/Monotreme" title="Monotreme">Monotremes</a>, however, lack them.<sup id="cite_ref-3" class="reference"><a href="#cite_note-3"><span class="cite-bracket">[</span>3<span class="cite-bracket">]</span></a></sup>
+</p><div title="figure"><figure class="mw-default-size" typeof="mw:File/Thumb"><a href="/wiki/File:Cat_whiskers_closeup.jpg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/9/96/Cat_whiskers_closeup.jpg/220px-Cat_whiskers_closeup.jpg" decoding="async" width="220" height="210" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/96/Cat_whiskers_closeup.jpg/330px-Cat_whiskers_closeup.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/96/Cat_whiskers_closeup.jpg/440px-Cat_whiskers_closeup.jpg 2x" data-file-width="1075" data-file-height="1024"></a><figcaption>A <a href="/wiki/Cat" title="Cat">cat</a> with vibrissae</figcaption></figure> 
+</div><p></p></div>
+<div name="infrared radiation" term="infrared radiation" role="ami_entry"><p>search term:  infrared radiation <a href="https://en.wikipedia.org/w/index.php?search=infrared%20radiation">Wikipedia Page</a></p><p class="wpage_first_para"><b>Infrared</b> (<b>IR</b>; sometimes called <b>infrared light</b>) is <a href="/wiki/Electromagnetic_radiation" title="Electromagnetic radiation">electromagnetic radiation</a> (EMR) with <a href="/wiki/Wavelength" title="Wavelength">wavelengths</a> longer than that of <a href="/wiki/Visible_light" class="mw-redirect" title="Visible light">visible light</a> but shorter than <a href="/wiki/Microwaves" class="mw-redirect" title="Microwaves">microwaves</a>. The infrared <a href="/wiki/Spectral_band" title="Spectral band">spectral band</a> begins with waves that are just longer than those of <a href="/wiki/Red" title="Red">red</a> light (the longest waves in the <a href="/wiki/Visible_spectrum" title="Visible spectrum">visible spectrum</a>), so IR is invisible to the human eye. IR is generally understood to include wavelengths from around 750&#160;<a href="/wiki/Nanometre" title="Nanometre">nm</a> (400&#160;<a href="/wiki/Hertz" title="Hertz">THz</a>) to 1&#160;<a href="/wiki/Millimetre" title="Millimetre">mm</a> (300&#160;<a href="/wiki/Hertz" title="Hertz">GHz</a>).<sup id="cite_ref-Vatansever-2012_1-0" class="reference"><a href="#cite_note-Vatansever-2012-1"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></a></sup><sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">[</span>2<span class="cite-bracket">]</span></a></sup> IR is commonly divided between longer-wavelength thermal IR, emitted from terrestrial sources, and shorter-wavelength IR or near-IR, part of the <a href="/wiki/Solar_spectrum" class="mw-redirect" title="Solar spectrum">solar spectrum</a>.<sup id="cite_ref-IPCC_AR4-SYR_3-0" class="reference"><a href="#cite_note-IPCC_AR4-SYR-3"><span class="cite-bracket">[</span>3<span class="cite-bracket">]</span></a></sup> Longer IR wavelengths (30&#8211;100&#160;&#956;m) are sometimes included as part of the <a href="/wiki/Terahertz_radiation" title="Terahertz radiation">terahertz radiation</a> band.<sup id="cite_ref-Rogalski-2019_4-0" class="reference"><a href="#cite_note-Rogalski-2019-4"><span class="cite-bracket">[</span>4<span class="cite-bracket">]</span></a></sup>  Almost all <a href="/wiki/Black-body_radiation" title="Black-body radiation">black-body radiation</a> from objects near <a href="/wiki/Room_temperature" title="Room temperature">room temperature</a> is in the IR band. As a form of electromagnetic radiation, IR carries <a href="/wiki/Energy" title="Energy">energy</a> and <a href="/wiki/Momentum" title="Momentum">momentum</a>, exerts <a href="/wiki/Radiation_pressure" title="Radiation pressure">radiation pressure</a>, and has properties corresponding to <a href="/wiki/Wave%E2%80%93particle_duality" title="Wave&#8211;particle duality">both</a> those of a <a href="/wiki/Wave" title="Wave">wave</a> and of a <a href="/wiki/Subatomic_particle" title="Subatomic particle">particle</a>, the <a href="/wiki/Photon" title="Photon">photon</a>.<sup id="cite_ref-5" class="reference"><a href="#cite_note-5"><span class="cite-bracket">[</span>5<span class="cite-bracket">]</span></a></sup>
+</p><div title="figure"><figure class="mw-default-size" typeof="mw:File/Thumb"><a href="/wiki/File:Ir_girl.png" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Ir_girl.png/220px-Ir_girl.png" decoding="async" width="220" height="146" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Ir_girl.png/330px-Ir_girl.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Ir_girl.png/440px-Ir_girl.png 2x" data-file-width="1159" data-file-height="768"></a><figcaption>A <a href="/wiki/False_color" title="False color">false-color</a> image of two people taken in long-wavelength infrared (body-temperature thermal) radiation</figcaption></figure>
+</div><p></p></div>
+  
 </body>
 </html>
